@@ -54,12 +54,8 @@ class GovernmentMelonOrder(AbstractMelonOrder):
     """No tax on government orders"""
     def __init__(self, species, qty):
         super().__init__(species, qty, "domestic", 0)
+        self.passed_inspection = False
 
-    passed_inspection = False
-    passed = True
-
-    def mark_inspection(self):
-        if self.passed:
-             passed_inspection = True
-        return passed_inspection
+    def mark_inspection(self, passed):
+        self.passed_inspection = passed
 
