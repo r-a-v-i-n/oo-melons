@@ -16,7 +16,7 @@ class AbstractMelonOrder():
         if self.species == "Christmas melon":
             base_price = base_price * 1.5
 
-        if self.qty < 10 and self.order_type == "international":
+        elif self.qty < 10 and self.order_type == "international":
 
             total = (1 + self.tax) * self.qty * base_price
             total += 3
@@ -36,7 +36,7 @@ class DomesticMelonOrder(AbstractMelonOrder):
     def __init__(self, species, qty):
         super().__init__(species, qty, "domestic", 0.08)
         """Initialize melon order attributes."""
-        
+
 class InternationalMelonOrder(AbstractMelonOrder):
     """An international (non-US) melon order."""
 
